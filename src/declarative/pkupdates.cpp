@@ -422,7 +422,7 @@ void PkUpdates::onFinished(PackageKit::Transaction::Exit status, uint runtime)
                 m_lastNotification = KNotification::event(s_eventIdUpdatesAvailable,
                                      QString(),
                                      i18np("You have 1 new update", "You have %1 new updates", upCount),
-                                     s_pkUpdatesIconName, nullptr, KNotification::Persistent,
+                                     s_pkUpdatesIconName, nullptr, KNotification::CloseOnTimeout,
                                      s_componentName);
                 connect(m_lastNotification, &KNotification::closed, this, [this] {
                     qCDebug(PLASMA_PK_UPDATES) << "Old notification closed";
